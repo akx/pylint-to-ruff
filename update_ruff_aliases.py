@@ -5,7 +5,13 @@ import subprocess
 from collections.abc import Iterable
 
 implemented_rule_re = re.compile(
-    r"^- \[x\] " r"`(?P<name>.+?)` / " r"`(?P<code>.+?)`" r"\s*" r"(?:\((?P<aliases>.+)\))?"
+    # fmt: off
+    r"^- \[x\] "
+    r"`(?P<name>.+?)` / "
+    r"`(?P<code>.+?)`"
+    r"\s*"
+    r"(?:\((?P<aliases>.+)\))?",
+    # fmt: on
 )
 
 
@@ -18,7 +24,7 @@ def get_ruff_issue_970_body():
                 "https://api.github.com/repos/astral-sh/ruff/issues/970",
                 "-o",
                 "issue-970.json",
-            ]
+            ],
         )
 
     with open("issue-970.json") as f:
