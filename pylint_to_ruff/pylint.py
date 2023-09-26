@@ -1,4 +1,5 @@
 import dataclasses
+import os.path
 import subprocess
 import sys
 from collections import namedtuple
@@ -23,8 +24,12 @@ def parse_pylint_msg_spec(spec: str) -> PylintMessage:
 def get_pylint_message_control_output(working_directory: str) -> PylintMessageConfig:
     pmc = PylintMessageConfig()
     current = None
+    command = ["pylint", "--list-msgs-enabled"]
+    pylintrc_file = os.path.join(working_directory, ".pylintrc")
+    if os.path.isfile(pylintrc_file):
+        command += ["--rcfile", pylintrc_file]
     for line in subprocess.check_output(
-        ["pylint", "--list-msgs-enabled"],
+        command,
         cwd=working_directory,
         encoding="utf-8",
     ).splitlines():
