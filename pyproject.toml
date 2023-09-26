@@ -1,0 +1,79 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pylint-to-ruff"
+dynamic = ["version"]
+description = 'Introspect a Pylint configuration and convert it to Ruff'
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+keywords = ["ruff", "pylint", "lint"]
+authors = [
+  { name = "Aarni Koskela", email = "akx@iki.fi" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.scripts]
+pylint-to-ruff = "pylint_to_ruff.cli:cli"
+
+[project.urls]
+Documentation = "https://github.com/akx/pylint-to-ruff#readme"
+Issues = "https://github.com/akx/pylint-to-ruff/issues"
+Source = "https://github.com/akx/pylint-to-ruff"
+
+[tool.hatch.version]
+path = "pylint_to_ruff/__init__.py"
+
+[tool.black]
+target-version = ["py39"]
+line-length = 120
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+select = [
+  "A",
+  "ARG",
+  "B",
+  "C",
+  "COM",
+  "DTZ",
+  "E",
+  "EM",
+  "F",
+  "FBT",
+  "I",
+  "ICN",
+  "ISC",
+  "N",
+  "PLC",
+  "PLE",
+  "PLR",
+  "PLW",
+  "Q",
+  "RUF",
+  "TID",
+  "UP",
+  "W",
+  "YTT",
+]
+ignore = [
+  "FBT003",
+]
+
+[tool.ruff.isort]
+known-first-party = ["pylint_to_ruff"]
+
+[tool.ruff.flake8-tidy-imports]
+ban-relative-imports = "all"

@@ -1,0 +1,5 @@
+*.py[cod]
+.*cache
+/build
+/dist
+/issue-970.json
