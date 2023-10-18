@@ -26,9 +26,16 @@ def cli():
         default=False,
         help="Don't print commented-out unsupported rules",
     )
+    ap.add_argument(
+        "--pylint-bin",
+        type=str,
+        default="pylint",
+        help="Full path to pylint if not on path",
+    )
+
     args = ap.parse_args()
     wd = args.wd
-    pmc = get_pylint_message_control_output(wd)
+    pmc = get_pylint_message_control_output(wd, args.pylint_bin)
     ruffverse = get_ruffverse()
     config = get_ruff_config_segment(
         pmc,
