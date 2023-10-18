@@ -21,10 +21,10 @@ def parse_pylint_msg_spec(spec: str) -> PylintMessage:
     return PylintMessage(name, code)
 
 
-def get_pylint_message_control_output(working_directory: str) -> PylintMessageConfig:
+def get_pylint_message_control_output(working_directory: str, pylint_bin: str) -> PylintMessageConfig:
     pmc = PylintMessageConfig()
     current = None
-    command = ["pylint", "--list-msgs-enabled"]
+    command = [pylint_bin, "--list-msgs-enabled"]
     pylintrc_file = os.path.join(working_directory, ".pylintrc")
     if os.path.isfile(pylintrc_file):
         command += ["--rcfile", pylintrc_file]
