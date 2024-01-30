@@ -24,6 +24,12 @@ classifiers = [
 ]
 dependencies = []
 
+[project.optional-dependencies]
+dev = [
+  "pytest-cov",
+  "pytest>=7.0",
+]
+
 [project.scripts]
 pylint-to-ruff = "pylint_to_ruff.cli:cli"
 

@@ -1,0 +1,23 @@
+name: Test
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+    tags:
+      - v*
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+      - run: pip install -e .[dev] pylint ruff
+      - run: pytest --cov . --cov-report=xml -vv
+      - uses: codecov/codecov-action@v3
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+      - uses: pre-commit/action@v3.0.0
