@@ -5,7 +5,7 @@ from pylint_to_ruff.pylint import get_pylint_message_control_output
 from pylint_to_ruff.ruff import get_ruffverse
 
 
-def cli():
+def cli(*, argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument(
         "wd",
@@ -33,7 +33,7 @@ def cli():
         help="Full path to pylint if not on path",
     )
 
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
     wd = args.wd
     pmc = get_pylint_message_control_output(wd, args.pylint_bin)
     ruffverse = get_ruffverse()
