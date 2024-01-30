@@ -4,6 +4,10 @@ A friend of [flake8-to-ruff](https://pypi.org/project/flake8-to-ruff/),
 this project attempts to introspect your Pylint configuration and figure out
 what Ruff rules to enable or disable.
 
+## Compatibility
+
+Ruff versions 0.1.4 (November 2023) and newer are supported.
+
 ## Usage
 
 You need to be in an environment where both your target Pylint version and

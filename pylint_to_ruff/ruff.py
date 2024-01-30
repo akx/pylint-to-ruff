@@ -31,6 +31,9 @@ class Ruffverse:
 
 
 def get_ruffverse() -> Ruffverse:
-    rules_output = subprocess.check_output(["ruff", "rule", "--format=json", "--all"], encoding="utf-8")
+    rules_output = subprocess.check_output(
+        ["ruff", "rule", "--output-format=json", "--all"],
+        encoding="utf-8",
+    )
     rules = {rule["code"]: rule for rule in json.loads(rules_output)}
     return Ruffverse(rules=rules)
