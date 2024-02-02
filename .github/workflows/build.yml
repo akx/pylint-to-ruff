@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: release
-      url: https://pypi.org/p/smolsaml/
+      url: https://pypi.org/p/pylint-to-ruff/
     permissions:
       id-token: write
     steps:
