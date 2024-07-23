@@ -25,8 +25,8 @@ class Ruffverse:
             return {pl_code}
         if m.name in self.name_to_code:
             return {self.name_to_code[m.name]}
-        if pl_code in RUFF_ALIASES:
-            return RUFF_ALIASES[pl_code]
+        if m.code in RUFF_ALIASES:
+            return RUFF_ALIASES[m.code]
         return set()
 
 
