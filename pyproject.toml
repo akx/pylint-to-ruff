@@ -48,7 +48,7 @@ line-length = 120
 [tool.ruff]
 target-version = "py39"
 line-length = 120
-select = [
+lint.select = [
   "A",
   "ARG",
   "B",
@@ -74,12 +74,12 @@ select = [
   "W",
   "YTT",
 ]
-ignore = [
+lint.ignore = [
   "FBT003",
 ]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
 known-first-party = ["pylint_to_ruff"]
 
-[tool.ruff.flake8-tidy-imports]
+[tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
